@@ -147,3 +147,12 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# TLPass: never commit secrets, keys or exported vault data
+.env
+.env.*
+*.pem
+*.key
+cdk.out/
+coverage/
+*.csv
