@@ -1,0 +1,38 @@
+{
+  "name": "@psi-project-007/tlpass-crypto",
+  "version": "1.0.0",
+  "description": "> **Pre-alpha: do not store real passwords.** The format and the API can still change, and nothing here has been audited yet.",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "build": "tsc -p tsconfig.build.json",
+    "test:browser": "vitest run --browser.enabled",
+    "coverage": "vitest run --coverage",
+    "lint": "eslint .",
+    "typecheck": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/psi-project-007/tlpass-crypto.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/psi-project-007/tlpass-crypto/issues"
+  },
+  "homepage": "https://github.com/psi-project-007/tlpass-crypto#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@vitest/browser-playwright": "^5.1.0",
+    "@vitest/coverage-v8": "^5.1.0",
+    "eslint": "^10.14.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^5.1.0"
+  },
+  "dependencies": {
+    "hash-wasm": "^4.12.0"
+  }
+}
