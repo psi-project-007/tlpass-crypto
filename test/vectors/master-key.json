@@ -1,0 +1,17 @@
+[
+  {
+    "email": "ana@example.com",
+    "password": "correct horse battery staple",
+    "key": "fc70d44e12605251dc9d904a14151f512ad851f4ccc4ebd6415f50e9e8c91239"
+  },
+  {
+    "email": " Bob@Example.COM ",
+    "password": "P@ssw0rd!",
+    "key": "bcbd8cd4a3ab571ee52483cc2e5a84be46bfb572cbf4bbcf48092010165a0f9a"
+  },
+  {
+    "email": "carol@example.org",
+    "password": "كلمة-سر-طويلة",
+    "key": "bb94dffeebbc4c227ba5240e61e7d85dcb7251868c3ecebd2f90dcdcdb081dc8"
+  }
+]
