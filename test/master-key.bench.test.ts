@@ -6,7 +6,7 @@ import {deriveMasterKey} from '../src/master-key';
 it.skipIf( import.meta.env.CI) ('derive in under 2 seconds', async () => {
   const t0 = performance.now();
   
-  await deriveMasterKey('alice@example.com', 'bench_password');
+  await deriveMasterKey('bench_password', 'alice@example.com');
   const t1 = performance.now() - t0;
 
   console.log(`deriveMasterKey: ${t1.toFixed(0)} ms`);

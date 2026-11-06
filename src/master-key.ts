@@ -35,7 +35,7 @@ async function emailSalt(email: string) : Promise<Uint8Array>{
 }
 
 export async function deriveMasterKey(
-    email: string, password: string, kdfSettings: KdfSettings = DEFAULT_KDF_SETTINGS): Promise<Uint8Array>{
+    password: string, email: string, kdfSettings: KdfSettings = DEFAULT_KDF_SETTINGS): Promise<Uint8Array>{
     assertKdf(kdfSettings);
     
     return argon2id({

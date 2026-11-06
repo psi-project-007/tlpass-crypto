@@ -8,7 +8,7 @@ cases = [("correct horse battery staple", "ana@example.com"),
 
 out = []
 
-for email, pwd in cases: 
+for pwd, email in cases: 
     salt = hashlib.sha256(email.strip().lower().encode()).digest()
     key = hash_secret_raw(
         pwd.encode(), salt, time_cost=3, memory_cost=65536, parallelism=4, hash_len=32, type=Type.ID
