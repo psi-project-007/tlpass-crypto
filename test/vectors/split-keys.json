@@ -1,0 +1,22 @@
+[
+  {
+    "masterKey": "fc70d44e12605251dc9d904a14151f512ad851f4ccc4ebd6415f50e9e8c91239",
+    "authHash": "WXRnO3wvR78h_Ic4GZHG_k52rOlsGfTbpcM0pfMrzLQ",
+    "vaultCheck": "3188f3fe31612ad1bb5af9a768be4b9f3a8d4f6a54ef9af5d8d9314670e8db7cfb41"
+  },
+  {
+    "masterKey": "bcbd8cd4a3ab571ee52483cc2e5a84be46bfb572cbf4bbcf48092010165a0f9a",
+    "authHash": "iyF28e8ZL-bdfwjp5lxwHGKw_ZqrxqZBingBvv19D08",
+    "vaultCheck": "6346c7bc1bfb753935c28e18a15d36cae1168b33457786e489162dc31f68ab8613bd"
+  },
+  {
+    "masterKey": "bb94dffeebbc4c227ba5240e61e7d85dcb7251868c3ecebd2f90dcdcdb081dc8",
+    "authHash": "bliUO-GjCotxWZr9N0howJ-3ypUF263wmRX37xSJBYI",
+    "vaultCheck": "7a7cfb86808efa1117b0be3fcb721e24dc2b5066055082a66907bf4755021a3ade63"
+  },
+  {
+    "masterKey": "0000000000000000000000000000000000000000000000000000000000000000",
+    "authHash": "TBbDeWpcK4ODeLNgv4mq9X0lFUwpa2kGVcOdncsYN2o",
+    "vaultCheck": "429b9367cc2f26e47283e9a6a9b3798aa82d9c36726ce8c762e03fd963cd0886ebd9"
+  }
+]
