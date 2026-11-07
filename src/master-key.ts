@@ -1,6 +1,5 @@
 import { argon2id } from 'hash-wasm';
-
-const utf8 = (str: string): Uint8Array<ArrayBuffer> => new TextEncoder().encode(str);
+import { utf8 } from './helpers/encoding';
 
 export const normalizedEmail = (email: string) => email.trim().toLowerCase();
 
