@@ -1,12 +1,7 @@
 import {describe, it, expect} from 'vitest';
 import {splitKeys} from '../src/split-keys';
 import vectors from './vectors/split-keys.json';
-
-const fromHex = 
-    (hex: string) => Uint8Array.from({ length: hex.length / 2 }, (_, i) => parseInt(hex.slice(i * 2, i * 2 + 2), 16));
-
-const toHex = 
-    (buf: Uint8Array) => Array.from(buf, (x) => x.toString(16).padStart(2, '0')).join('');
+import { fromHex, toHex } from './helpers/hex';
 
 describe('splitKeys', () => {
   it.each(vectors)('matches Auth Hash vector $authHash', async ({ masterKey, authHash }) => {
