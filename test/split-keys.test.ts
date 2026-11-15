@@ -1,7 +1,7 @@
 import {describe, it, expect} from 'vitest';
 import {splitKeys} from '../src/split-keys';
 import vectors from './vectors/split-keys.json';
-import { fromHex, toHex } from './helpers/hex';
+import { fromHex, toHex } from '../src/helpers/encoding';
 
 describe('splitKeys', () => {
   it.each(vectors)('matches Auth Hash vector $authHash', async ({ masterKey, authHash }) => {

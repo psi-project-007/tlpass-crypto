@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { encryptEntry, decryptEntry, createVaultKey, DecryptError } from '../src';
-import { fromHex } from './helpers/hex';
+import { fromHex } from '../src/helpers/encoding';
 import vectors from './vectors/entry.json';
 
 const VAULT_KEY = (hex: string) =>

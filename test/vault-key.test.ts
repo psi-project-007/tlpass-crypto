@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { createVaultKey, wrapVaultKey, unwrapVaultKey } from '../src';
 import { DecryptError } from '../src';
-import { fromHex } from './helpers/hex';
+import { fromHex } from '../src/helpers/encoding';
 import vectors from './vectors/vault-key.json';
 
 const AES_KEY = (hex: string, usages: KeyUsage[], extractable = false) =>{
