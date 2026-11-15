@@ -4,7 +4,7 @@ import { InvalidRecoveryPhraseError } from '../src/errors';
 import WORDS from '../src/helpers/bip39-english.json';
 import bip39 from './vectors/bip39.json';
 import vectors from './vectors/recovery.json';
-import { fromHex, toHex } from './helpers/hex';
+import { fromHex, toHex } from '../src/helpers/encoding';
 
 const WORDLIST_SHA256 = '2f5eed53a4727b4bf8880d8f3f199efc90e58503646d9ff8eff3a2ed3b24dbda';
 
