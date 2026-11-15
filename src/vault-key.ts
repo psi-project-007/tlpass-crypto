@@ -1,10 +1,6 @@
 import {DecryptError} from "./errors";
-import {parseEnvelope, FORMAT_ENVELOPE, NONCE_LENGTH} from "./helpers/envelope";
+import {parseEnvelope, FORMAT_ENVELOPE, NONCE_LENGTH, AES_GCM} from "./helpers/envelope";
 import {RANDOM_BYTES, type RandomSource} from "./helpers/random";
-
-const AES_GCM = (iv: Uint8Array<ArrayBuffer>): AesGcmParams => {
-    return {name: "AES-GCM", iv, tagLength: 128};
-}
 
 export async function createVaultKey(): Promise<CryptoKey> { 
     return crypto.subtle.generateKey({

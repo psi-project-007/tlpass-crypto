@@ -1,0 +1,27 @@
+[
+  {
+    "vault_key": "0000000000000000000000000000000000000000000000000000000000000000",
+    "user_id": "user-1",
+    "item_id": "item-1",
+    "nonce": "000000000000000000000000",
+    "entry": {
+      "site": "example.com",
+      "username": "mo",
+      "password": "p@ss"
+    },
+    "encrypted": "v1.AAAAAAAAAAAAAAAA.tYUzVDkFSVQlK72y14PxfVwDbKcViggBoseH4BRrUKznaNxHb2bDCyCbKlMoflLVfWO7ofLIXU3CAbOLPMYCfFMs6chduW5b"
+  },
+  {
+    "vault_key": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+    "user_id": "3f2c9a1e-0000-4000-8000-000000000001",
+    "item_id": "7b1d4e2a-0000-4000-8000-000000000002",
+    "nonce": "000102030405060708090a0b",
+    "entry": {
+      "site": "مصرفي",
+      "username": "محمد",
+      "password": "كلمة-سر-123",
+      "notes": ""
+    },
+    "encrypted": "v1.AAECAwQFBgcICQoL.PCClcrGA4CGvmBJTBDHJtAIPDRbcWSoPXRWL5HAMIogjySskAhiXQNuGU8_45ltLmTYS6XjsgQO8Tq7AnTtcwyiPHsv-4BRSPniIAID7a5sasOtAC13qUqEZukUV7TkC9SPgH6w"
+  }
+]
