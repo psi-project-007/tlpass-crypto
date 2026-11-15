@@ -4,3 +4,10 @@ export class DecryptError extends Error {
         this.name = "DecryptError";
     }
 }
+
+export class InvalidRecoveryPhraseError extends Error {
+    constructor(){
+        super("InvalidRecoveryPhraseError");
+        this.name = "InvalidRecoveryPhraseError";
+    }
+}

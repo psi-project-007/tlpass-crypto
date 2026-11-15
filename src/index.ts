@@ -8,4 +8,6 @@ export { createVaultKey, wrapVaultKey, unwrapVaultKey } from './vault-key';
 
 export { encryptEntry, decryptEntry } from './entry';
 
-export { DecryptError } from './errors';
+export { generateRecoveryWords, deriveRecoveryKeys, type RecoveryKeys } from './recovery';
+
+export { DecryptError, InvalidRecoveryPhraseError } from './errors';

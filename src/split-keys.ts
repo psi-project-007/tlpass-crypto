@@ -1,16 +1,9 @@
 import { toBase64Url } from './helpers/base64url';
 import { utf8 } from './helpers/encoding';
-
+import { HKDF_PARAMS } from './helpers/hkdf';
 
 const AUTH_INFO = utf8('tlpass-auth-v1');
 const VAULT_INFO = utf8('tlpass-vault-v1');
-
-const HKDF_PARAMS = (info: Uint8Array<ArrayBuffer>): HkdfParams => ({
-    name: 'HKDF',
-    hash: 'SHA-256',
-    salt: new Uint8Array(),
-    info: info
-})
 
 export interface SplitKeys {
     authHash: string;
