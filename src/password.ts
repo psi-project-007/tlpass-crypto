@@ -52,14 +52,12 @@ export function generatePassword(options: GeneratorOptions, random: RandomSource
     if (sets.length === 0) throw new RangeError('At least one character set must be selected');
 
     const all = sets.join('');
-    const pick = (set: string) => set[randomIndex(set.length, random)];
-    const chars = [...sets.map(pick), ...Array.from({ length: length - sets.length }, () => pick(all))];
+    const hasEveryType = (pw: string) => sets.every((set) => [...pw].some((c) => set.includes(c)));
 
-    for( let i = chars.length - 1; i > 0; i--){
-        const j = randomIndex(i + 1, random);
-        [chars[i], chars[j]] = [chars[j], chars[i]];
+    for (;;) {
+        const pw = Array.from({ length }, () => all[randomIndex(all.length, random)]).join('');
+        if (hasEveryType(pw)) return pw;
     }
-    return chars.join('');
 }
 
 export type MasterPasswordRule = 'length' | 'upper' | 'lower' | 'digit';

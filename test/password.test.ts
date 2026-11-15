@@ -39,6 +39,24 @@ describe('generatePassword', () => {
         expect(counts.size).toBe(10);
         expect(chi2).toBeLessThan(27.88); // df=9, p=0.001
     });
+
+    it('is uniform over valid mixed passwords (chi-square on digit count)', () => {
+        const N = 20_000, L = 8, p = 10 / 36;
+        const binom = (n: number, k: number) => { let r = 1; for (let i = 1; i <= k; i++) r = r * (n - k + i) / i; return r; };
+        const weights = Array.from({ length: L - 1 }, (_, i) => binom(L, i + 1) * p ** (i + 1) * (1 - p) ** (L - i - 1));
+        const total = weights.reduce((a, b) => a + b);
+
+        const counts = Array(L - 1).fill(0);
+        for (let i = 0; i < N; i++) {
+            const pw = generatePassword({ length: L, upper: true, lower: false, digits: true, symbols: false, excludeLookAlikes: false });
+            counts[[...pw].filter((c) => /\d/.test(c)).length - 1]++;
+        }
+        const chi2 = counts.reduce((s, n, i) => {
+            const e = N * weights[i] / total;
+            return s + (n - e) ** 2 / e;
+        }, 0);
+        expect(chi2).toBeLessThan(22.46); // df=6, p=0.001
+    });
 });
 
 describe('checkMasterPassword', () => {
