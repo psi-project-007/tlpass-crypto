@@ -10,6 +10,13 @@ export interface Envelope{
     ciphertext: Uint8Array<ArrayBuffer>;
 }
 
+export const AES_GCM = (iv: Uint8Array<ArrayBuffer>, 
+    additionalData?: Uint8Array<ArrayBuffer>): AesGcmParams => {
+    return additionalData ? 
+        {name: "AES-GCM", iv, tagLength: 128, additionalData} : 
+        {name: "AES-GCM", iv, tagLength: 128};
+}
+
 export const FORMAT_ENVELOPE = (nonce: Uint8Array<ArrayBuffer>, ciphertext: Uint8Array<ArrayBuffer>): string => {
     return `${VERSION}.${toBase64Url(nonce)}.${toBase64Url(ciphertext)}`;
 }

@@ -6,4 +6,6 @@ export { splitKeys, type SplitKeys } from './split-keys';
 
 export { createVaultKey, wrapVaultKey, unwrapVaultKey } from './vault-key';
 
+export { encryptEntry, decryptEntry } from './entry';
+
 export { DecryptError } from './errors';
