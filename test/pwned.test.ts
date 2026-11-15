@@ -15,7 +15,7 @@ describe('isPwned', () => {
     });
 
     it('reports pwned with the count', async () => {
-        const result = await isPwned('password', reply(`AAAA:1\r\n${SUFFIX}:9659365\r\n`));
+        const result = await isPwned('password', reply(`${'A'.repeat(35)}:1\r\n${SUFFIX}:9659365\r\n`));
         expect(result).toEqual({ status: 'pwned', count: 9659365 });
     });
 
@@ -31,5 +31,19 @@ describe('isPwned', () => {
     it('returns unknown on a non-OK response', async () => {
         expect(await isPwned('password', reply('').mockResolvedValue(new Response('', { status: 503 }))))
             .toEqual({ status: 'unknown', count: 0 });
+    });
+
+    it.each([
+        ['an empty body', ''],
+        ['an HTML page', '<html>Service unavailable</html>'],
+        ['a non-numeric count', `${SUFFIX}:abc`],
+        ['a negative count', `${SUFFIX}:-1`],
+    ])('returns unknown for %s', async (_, body) => {
+        expect(await isPwned('password', reply(body))).toEqual({ status: 'unknown', count: 0 });
+    });
+
+    it('reports clean when a valid response has no match', async () => {
+        const body = `${'A'.repeat(35)}:3\r\n${'B'.repeat(35)}:0\r\n`;
+        expect(await isPwned('password', reply(body))).toEqual({ status: 'clean', count: 0 });
     });
 });

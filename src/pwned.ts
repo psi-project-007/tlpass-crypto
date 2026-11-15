@@ -16,12 +16,19 @@ async function sha1Hex(password: string): Promise<string> {
     return toHex(hash).toUpperCase();
 }
 
-function findCount(body: string, suffix: string): number {
-    for (const line of body.split(/\r?\n/)) {
-        const [lineSuffix, count] = line.split(':');
-        if (lineSuffix === suffix) return Number(count);
+const RANGE_LINE = /^([0-9A-F]{35}):(\d+)$/;
+
+function findCount(body: string, suffix: string): number | undefined {
+    const lines = body.split(/\r?\n/).filter((line) => line !== '');
+    if (lines.length === 0) return undefined;
+
+    let found = 0;
+    for (const line of lines) {
+        const match = RANGE_LINE.exec(line);
+        if (!match) return undefined;
+        if (match[1] === suffix) found = Number(match[2]);
     }
-    return 0;
+    return found;
 }
 
 export async function isPwned(password: string, fetchFn: FetchFn = fetch): Promise<PwnedResult> {
@@ -34,6 +41,7 @@ export async function isPwned(password: string, fetchFn: FetchFn = fetch): Promi
         if (!response.ok) return { status: 'unknown', count: 0 };
 
         const count = findCount(await response.text(), suffix);
+        if (count === undefined) return { status: 'unknown', count: 0 };
         return { status: count > 0 ? 'pwned' : 'clean', count };
     } catch {
         return { status: 'unknown', count: 0 };
