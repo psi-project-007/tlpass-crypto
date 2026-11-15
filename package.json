@@ -9,7 +9,8 @@
     "test:browser": "vitest run --browser.enabled",
     "coverage": "vitest run --coverage",
     "lint": "eslint .",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "check": "npm run typecheck && npm run lint && npm run coverage && npm run test:browser"
   },
   "repository": {
     "type": "git",
