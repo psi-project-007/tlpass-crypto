@@ -10,4 +10,6 @@ export { encryptEntry, decryptEntry } from './entry';
 
 export { generateRecoveryWords, deriveRecoveryKeys, type RecoveryKeys } from './recovery';
 
+export { generatePassword, checkMasterPassword, strengthScore, charsetSize, type GeneratorOptions, type CharsetOptions, type MasterPasswordRule } from './password';
+
 export { DecryptError, InvalidRecoveryPhraseError } from './errors';
