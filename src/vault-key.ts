@@ -22,7 +22,7 @@ export async function wrapVaultKey(
     return FORMAT_ENVELOPE(nonce, new Uint8Array(wrapped));
 }
 
-export async function unwrapVaultKey(wrapped: string, wrappingKey: CryptoKey): Promise<CryptoKey>{
+async function unwrapRaw(wrapped: string, wrappingKey: CryptoKey, extractable: boolean): Promise<CryptoKey>{
     const {nonce, ciphertext} = parseEnvelope(wrapped);
     try{
         return await crypto.subtle.unwrapKey(
@@ -31,10 +31,21 @@ export async function unwrapVaultKey(wrapped: string, wrappingKey: CryptoKey): P
             wrappingKey,
             AES_GCM(nonce),
             { name: "AES-GCM", length: 256 },
-            false,
+            extractable,
             ["encrypt", "decrypt"]
-        )
+        );
     }catch{
         throw new DecryptError();
     }
+}
+
+export async function unwrapVaultKey(wrapped: string, wrappingKey: CryptoKey): Promise<CryptoKey>{
+    return unwrapRaw(wrapped, wrappingKey, false);
+}
+
+export async function rewrapVaultKey(
+    wrapped: string, oldWrappingKey: CryptoKey, newWrappingKey: CryptoKey, random: RandomSource = RANDOM_BYTES
+): Promise<string>{
+    const vaultKey = await unwrapRaw(wrapped, oldWrappingKey, true);
+    return wrapVaultKey(vaultKey, newWrappingKey, random);
 }

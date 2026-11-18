@@ -1,0 +1,26 @@
+[
+  {
+    "vault_key": "0000000000000000000000000000000000000000000000000000000000000000",
+    "old_wrapping_key": "0000000000000000000000000000000000000000000000000000000000000000",
+    "new_wrapping_key": "1111111111111111111111111111111111111111111111111111111111111111",
+    "new_nonce": "010101010101010101010101",
+    "old_wrapped": "v1.AAAAAAAAAAAAAAAA.zqdAPU1ga24HTsXTuvOdGHJgA8o3pip00aL1jnUGNY7R0whMmaqKn9q7PoPrKMFd",
+    "new_wrapped": "v1.AQEBAQEBAQEBAQEB.RrOA3I4DzMwBCKner7F2vZ9GI4O27_qjWAGtj_TYlpWOpUpc1KTcg-PQwqYcgsdF"
+  },
+  {
+    "vault_key": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+    "old_wrapping_key": "202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f",
+    "new_wrapping_key": "404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f",
+    "new_nonce": "0c0d0e0f1011121314151617",
+    "old_wrapped": "v1.AAECAwQFBgcICQoL.XFNfpE4w7eu08MPNKn5QMwNh-3d-BLAGPBTJoaec1YdLiW2dQ1ioc3cx0QtglUzb",
+    "new_wrapped": "v1.DA0ODxAREhMUFRYX.xXN80jyI9VhhMkRFBO-FJswMoutuV6dXtoHX1nLZv55LdDP89ym4DSG35c9nQmSj"
+  },
+  {
+    "vault_key": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+    "old_wrapping_key": "a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5",
+    "new_wrapping_key": "5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a",
+    "new_nonce": "f0f0f0f0f0f0f0f0f0f0f0f0",
+    "old_wrapped": "v1.Dw8PDw8PDw8PDw8P.ONRh7JJMr0RnQ60PHXHIIc4H2BxUiP6SWBRrEL1gZazZBnq7uFb7XedFAdNG2v4R",
+    "new_wrapped": "v1.8PDw8PDw8PDw8PDw.RnaferAMp4f9oEhaQWBCw4ITudnin0DYTE-F8OCti3mqNIWPnQyTcZ6QitlEkqvt"
+  }
+]
