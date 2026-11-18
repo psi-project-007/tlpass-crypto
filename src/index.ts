@@ -4,7 +4,7 @@ export { deriveMasterKey, normalizedEmail, DEFAULT_KDF_SETTINGS, type KdfSetting
 
 export { splitKeys, type SplitKeys } from './split-keys';
 
-export { createVaultKey, wrapVaultKey, unwrapVaultKey } from './vault-key';
+export { createVaultKey, wrapVaultKey, unwrapVaultKey, rewrapVaultKey } from './vault-key';
 
 export { encryptEntry, decryptEntry } from './entry';
 
