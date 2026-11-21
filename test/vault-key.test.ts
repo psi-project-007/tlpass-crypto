@@ -15,6 +15,9 @@ const AES_KEY = (hex: string, usages: KeyUsage[], extractable = false) =>{
     );
 }
 
+const ENCRYPT_ZEROS = async (key: CryptoKey) =>
+    new Uint8Array(await crypto.subtle.encrypt({ name: 'AES-GCM', iv: new Uint8Array(12) }, key, new Uint8Array(32)));
+
 const WRAPPING_KEY = () => {
     return crypto.subtle.generateKey(
         { name: 'AES-GCM', length: 256 },
@@ -119,5 +122,11 @@ describe('Vault Key', () => {
         const opened = await unwrapVaultKey(await wrapVaultKey(await createVaultKey(), wk), wk);
         expect(opened.extractable).toBe(false);
         await expect(crypto.subtle.exportKey('raw', opened)).rejects.toThrow();
+    });
+
+    it.each(vectors)('unwraps vector $wrapped to its Vault Key', async ({ vault_key, wrapping_key: wk, wrapped }) => {
+        const opened = await unwrapVaultKey(wrapped, await AES_KEY(wk, ['wrapKey', 'unwrapKey']));
+        const expected = await AES_KEY(vault_key, ['encrypt', 'decrypt']);
+        expect(await ENCRYPT_ZEROS(opened)).toEqual(await ENCRYPT_ZEROS(expected));
     });
 });
