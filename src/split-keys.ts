@@ -1,6 +1,6 @@
-import { toBase64Url } from './helpers/base64url';
-import { utf8 } from './helpers/encoding';
-import { HKDF_PARAMS } from './helpers/hkdf';
+import { toBase64Url } from './helpers/base64url.js';
+import { utf8 } from './helpers/encoding.js';
+import { HKDF_PARAMS } from './helpers/hkdf.js';
 
 const AUTH_INFO = utf8('tlpass-auth-v1');
 const VAULT_INFO = utf8('tlpass-vault-v1');

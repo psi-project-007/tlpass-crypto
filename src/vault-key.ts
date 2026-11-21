@@ -1,6 +1,6 @@
-import {DecryptError} from "./errors";
-import {parseEnvelope, FORMAT_ENVELOPE, NONCE_LENGTH, AES_GCM} from "./helpers/envelope";
-import {RANDOM_BYTES, type RandomSource} from "./helpers/random";
+import {DecryptError} from "./errors.js";
+import {parseEnvelope, FORMAT_ENVELOPE, NONCE_LENGTH, AES_GCM} from "./helpers/envelope.js";
+import {RANDOM_BYTES, type RandomSource} from "./helpers/random.js";
 
 export async function createVaultKey(): Promise<CryptoKey> { 
     return crypto.subtle.generateKey({

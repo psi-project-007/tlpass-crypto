@@ -1,8 +1,8 @@
-import { toBase64Url } from './helpers/base64url';
-import { utf8 } from './helpers/encoding';
-import { RANDOM_BYTES, type RandomSource } from './helpers/random';
-import { entropyToWords, wordsToEntropy, normalizePhrase } from './helpers/bip39';
-import { HKDF_PARAMS } from './helpers/hkdf';
+import { toBase64Url } from './helpers/base64url.js';
+import { utf8 } from './helpers/encoding.js';
+import { RANDOM_BYTES, type RandomSource } from './helpers/random.js';
+import { entropyToWords, wordsToEntropy, normalizePhrase } from './helpers/bip39.js';
+import { HKDF_PARAMS } from './helpers/hkdf.js';
 
 const ENTROPY_LENGTH = 16;
 const SLOT_INFO = utf8('tlpass-recovery-key-v1');
