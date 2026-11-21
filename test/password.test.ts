@@ -1,7 +1,21 @@
 import { describe, expect, it } from 'vitest';
 import { generatePassword, checkMasterPassword, strengthScore, charsetSize } from '../src/password';
+import { fromHex } from '../src/helpers/encoding';
+import type { RandomSource } from '../src/helpers/random';
+import vectors from './vectors/password.json';
 
 const ALL = { upper: true, lower: true, digits: true, symbols: true, excludeLookAlikes: false };
+const STREAM_FROM_HEX = (hex: string): RandomSource => {
+    const bytes = fromHex(hex);
+    let i = 0;
+    return (n) => {
+        if (i + n > bytes.length) throw new Error('vector stream exhausted');
+        const out = bytes.slice(i, i + n);
+        i += n;
+        return out;
+    };
+};
+
 
 describe('generatePassword', () => {
     it.each([8, 20, 64])('includes every chosen type at length %i', (length) => {
@@ -101,5 +115,20 @@ describe('strengthScore with the chosen set size', () => {
 
     it('still guesses the set when no size is given', () => {
         expect(strengthScore('a'.repeat(13))).toBe(2);
+    });
+});
+
+describe('password vectors', () => {
+    it.each(vectors.generate)('generates $password', ({ options, random, password }) => {
+        expect(generatePassword(options, STREAM_FROM_HEX(random))).toBe(password);
+    });
+    it.each(vectors.master)('checks master rules for "$password"', ({ password, fails }) => {
+        expect(checkMasterPassword(password)).toEqual(fails);
+    });
+    it.each(vectors.strength)('scores $password as $score', ({ password, score }) => {
+        expect(strengthScore(password)).toBe(score);
+    });
+    it.each(vectors.charset)('charset size $size', ({ options, size }) => {
+        expect(charsetSize(options)).toBe(size);
     });
 });

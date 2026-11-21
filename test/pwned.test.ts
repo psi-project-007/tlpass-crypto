@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { isPwned } from '../src/pwned';
+import vectors from './vectors/pwned.json';
 
 const SUFFIX = '1E4C9B93F3F0682250B6CF8331B7EE68FD8';
 const reply = (body: string) => vi.fn(async () => new Response(body));
@@ -45,5 +46,14 @@ describe('isPwned', () => {
     it('reports clean when a valid response has no match', async () => {
         const body = `${'A'.repeat(35)}:3\r\n${'B'.repeat(35)}:0\r\n`;
         expect(await isPwned('password', reply(body))).toEqual({ status: 'clean', count: 0 });
+    });
+
+    it.each(vectors)('sends the prefix and finds the suffix for $password', async ({ password, prefix, suffix }) => {
+        const fetchFn = reply(`${suffix}:42\r\n`);
+        expect(await isPwned(password, fetchFn)).toEqual({ status: 'pwned', count: 42 });
+        expect(fetchFn).toHaveBeenCalledWith(
+            `https://api.pwnedpasswords.com/range/${prefix}`,
+            { headers: { 'Add-Padding': 'true' } },
+        );
     });
 });

@@ -23,5 +23,18 @@
       "notes": ""
     },
     "encrypted": "v1.AAECAwQFBgcICQoL.PCClcrGA4CGvmBJTBDHJtAIPDRbcWSoPXRWL5HAMIogjySskAhiXQNuGU8_45ltLmTYS6XjsgQO8Tq7AnTtcwyiPHsv-4BRSPniIAID7a5sasOtAC13qUqEZukUV7TkC9SPgH6w"
+  },
+  {
+    "vault_key": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+    "user_id": "user-3",
+    "item_id": "item-3",
+    "nonce": "ffffffffffffffffffffffff",
+    "entry": {
+      "site": "",
+      "username": "",
+      "password": "",
+      "notes": "line1\nline2 \"quoted\""
+    },
+    "encrypted": "v1.________________.xhnN7Gz1-q421ETnwRetmHc-bteODkk64Fd7_zwP81H4ivrXJbfr9XlDs1swUa0Gcu79cl3R_hmvFxVWYlzquZ_PzWJfcBYtEILsigm09v1lOeYCMyXNhLI"
   }
 ]
