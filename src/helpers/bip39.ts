@@ -1,5 +1,5 @@
-import WORDS from './bip39-english.json';
-import { InvalidRecoveryPhraseError } from '../errors';
+import WORDS from './bip39-english.json' with { type: 'json' };
+import { InvalidRecoveryPhraseError } from '../errors.js';
 
 const WORD_COUNT = 12;
 const ENTROPY_BITS = 128;

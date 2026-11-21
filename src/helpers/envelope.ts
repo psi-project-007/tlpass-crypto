@@ -1,5 +1,5 @@
-import { DecryptError } from "../errors";
-import { fromBase64Url, toBase64Url } from "./base64url";
+import { DecryptError } from "../errors.js";
+import { fromBase64Url, toBase64Url } from "./base64url.js";
 
 export const NONCE_LENGTH = 12;
 const TAG_LENGTH = 16;

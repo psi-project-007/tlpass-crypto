@@ -1,4 +1,4 @@
-import { RANDOM_BYTES , type RandomSource } from './helpers/random';
+import { RANDOM_BYTES , type RandomSource } from './helpers/random.js';
 
 const UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const LOWER = 'abcdefghijklmnopqrstuvwxyz';

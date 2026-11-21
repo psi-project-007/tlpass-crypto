@@ -1,8 +1,19 @@
 {
   "name": "@psi-project-007/tlpass-crypto",
-  "version": "1.0.0",
-  "description": "> **Pre-alpha: do not store real passwords.** The format and the API can still change, and nothing here has been audited yet.",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "Zero-knowledge crypto core for TLPass (pre-alpha, not audited).",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "test": "vitest run",
     "build": "tsc -p tsconfig.build.json",

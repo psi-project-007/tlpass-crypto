@@ -1,4 +1,4 @@
-import { toHex, utf8 } from './helpers/encoding';
+import { toHex, utf8 } from './helpers/encoding.js';
 
 export const PWNED_RANGE_URL = 'https://api.pwnedpasswords.com/range/';
 

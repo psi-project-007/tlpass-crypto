@@ -1,5 +1,5 @@
 import { argon2id } from 'hash-wasm';
-import { utf8 } from './helpers/encoding';
+import { utf8 } from './helpers/encoding.js';
 
 export const normalizedEmail = (email: string) => email.trim().toLowerCase();
 

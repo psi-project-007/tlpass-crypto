@@ -1,8 +1,10 @@
 {
-  "extends": "./tsconfig.json",   
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "noEmit": false,              
-    "rootDir": "src"              
+    "noEmit": false,
+    "rootDir": "src",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
   },
-  "include": ["src"]              
+  "include": ["src"]
 }
