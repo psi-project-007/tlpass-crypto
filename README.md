@@ -23,6 +23,32 @@ Everything runs on the user's device. The server only ever sees the Auth Hash an
 
 The mobile app will use this same package later, so every client encrypts the same way.
 
+## Install
+
+The package is on GitHub Packages, which needs a token even for public packages.
+
+1. Add an `.npmrc` to your project (no token in it):
+
+   ```ini
+   @psi-project-007:registry=https://npm.pkg.github.com
+   ```
+
+2. **Locally:** create a classic personal access token with only `read:packages` and an expiry date. Put it in your user `~/.npmrc`, never in a repository:
+
+   ```ini
+   //npm.pkg.github.com/:_authToken=<your-token>
+   ```
+
+3. **GitHub Actions:** give the job `packages: read`, use `actions/setup-node` with `registry-url: https://npm.pkg.github.com`, and set `NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}` on the install step.
+
+4. Install an exact version:
+
+   ```bash
+   npm install @psi-project-007/tlpass-crypto@0.1.0 --save-exact
+   ```
+
+Upgrades come through Dependabot pull requests.
+
 ## Licence
 
 [Apache-2.0](LICENSE).
